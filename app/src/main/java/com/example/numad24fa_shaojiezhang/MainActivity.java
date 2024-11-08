@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,14 +17,18 @@ public class MainActivity extends AppCompatActivity {
         aboutMeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Shaojie Zhang - zhang.shaoj@northeastern.edu", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AboutMeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button contactsCollectorButton = findViewById(R.id.contactsCollectorButton);
+        contactsCollectorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ContactsCollectorActivity.class);
+                startActivity(intent);
             }
         });
     }
-
-    public void openCalculatorActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, Calculator.class);
-        startActivity(intent);
-    }
-
 }
